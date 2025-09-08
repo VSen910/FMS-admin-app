@@ -1,0 +1,24 @@
+<app-header />
+<div class="home-container p-4">
+  <div class="head-row d-flex justify-content-between align-items-center">
+    <h2 class="maven-bold">Hey Vineet</h2>
+    <div class="actions d-flex gap-3">
+      <p class="fw-bold">Sign out</p>
+    </div>
+  </div>
+  <p class="mt-4">Faculty accounts</p>
+  <div class="pending-cards d-flex flex-wrap gap-3 mt-4">
+    <app-form-card
+      name="Alice Johnson"
+      position="Assistant Professor, IIIT Dharwad"
+      email="abc@a.com"
+      [questionnaires]=5
+    ></app-form-card>
+    <app-form-card
+      name="Bob Smith"
+      position="Associate Professor, IIIT Dharwad"
+      email="a@a.com"
+      [questionnaires]=3
+    ></app-form-card>
+  </div>
+</div>
