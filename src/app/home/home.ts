@@ -25,5 +25,11 @@ export class Home implements OnInit{
         this.router.navigate(['/login']);
       }
     });
+
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
   }
 }

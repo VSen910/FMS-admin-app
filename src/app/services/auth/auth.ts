@@ -21,4 +21,10 @@ export class Auth {
     return this.http.get<boolean>(`${environment.apiUrl}/api/auth/validate`, { headers: { Authorization: `Bearer ${token}` } });
   }
 
+  logout(): void {
+    this.cookieService.delete('token');
+    this.cookieService.delete('fullName');
+    console.log('User logged out, cookies cleared.');
+  }
+
 }
