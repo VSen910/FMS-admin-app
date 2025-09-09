@@ -1,12 +1,12 @@
-<div class="form-card" (click)="goToDetails()">
-  <h3>{{ name }}</h3>
-  <p>{{ position }}</p>
+<div class="form-card">
+  <h3>{{ faculty.fullName }}</h3>
+  <!-- <p>{{ position }}</p> -->
   <div class="creator">
-    <p>{{ email }}</p>
-    Questionnaires created:
-    <span>{{ questionnaires }}</span>
+    <p>{{ faculty.email }}</p>
+    <!-- Questionnaires created:
+    <span>{{ questionnaires }}</span> -->
   </div>
-  <div class="arrow">
+  <div class="delete-icon" (click)="onDelete()">
     <img src="delete.svg" alt="delete" />
   </div>
 </div>

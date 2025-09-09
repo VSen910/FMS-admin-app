@@ -1,0 +1,51 @@
+<div class="modal-card">
+  <h4 class="mb-4 maven-bold">Create faculty</h4>
+  <form [formGroup]="createFacultyForm" (ngSubmit)="createFaculty($event)">
+    <div class="mb-3">
+      <label for="fullName" class="form-label">Name</label>
+      <input type="text" id="fullName" formControlName="fullName" class="form-control rounded-3" />
+    </div>
+
+    @if (createFacultyForm.get('fullName')?.touched && createFacultyForm.get('fullName')?.invalid) {
+    <div class="text-danger mb-3">
+      @if (createFacultyForm.get('fullName')?.errors?.['required']) {
+      <small>Name is required.</small>
+      }
+    </div>
+    }
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" formControlName="email" class="form-control rounded-3" />
+    </div>
+
+    @if (createFacultyForm.get('email')?.touched && createFacultyForm.get('email')?.invalid) {
+    <div class="text-danger mb-4">
+      @if (createFacultyForm.get('email')?.errors?.['required']) {
+      <small>Email is required.</small>
+      } @if (createFacultyForm.get('email')?.errors?.['email']) {
+      <small>Invalid email</small>
+      }
+    </div>
+    }
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" id="password" formControlName="password" class="form-control rounded-3" />
+    </div>
+
+    @if (createFacultyForm.get('password')?.touched && createFacultyForm.get('password')?.invalid) {
+    <div class="text-danger mb-4">
+      @if (createFacultyForm.get('password')?.errors?.['required']) {
+      <small>Password is required.</small>
+      } @if (createFacultyForm.get('password')?.errors?.['minlength']) {
+      <small>Password must be at least 6 characters.</small>
+      }
+    </div>
+    }
+
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="btn btn-primary rounded-3 px-4">Create faculty</button>
+    </div>
+  </form>
+</div>

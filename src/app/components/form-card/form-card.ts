@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Faculty } from '../../models/faculty.model';
 
 @Component({
   selector: 'app-form-card',
@@ -7,13 +8,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './form-card.css'
 })
 export class FormCard {
-  @Input() name!: string;
-  @Input() position!: string;
-  @Input() email!: string;
-  @Input() questionnaires!: number;
-
-  goToDetails() {
-    // Logic to navigate to form details page
-    console.log('Navigating to form details...');
+  @Input() faculty!: Faculty;
+  @Output() deleteFaculty = new EventEmitter<number>();
+  
+  onDelete() {
+    this.deleteFaculty.emit(this.faculty.id);
   }
 }
