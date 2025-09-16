@@ -17,12 +17,12 @@ export class Auth {
   }
 
   validateToken(): Observable<boolean> {
-    const token = this.cookieService.get('token');
+    const token = this.cookieService.get('adminToken');
     return this.http.get<boolean>(`${environment.apiUrl}/api/auth/validate`, { headers: { Authorization: `Bearer ${token}` } });
   }
 
   logout(): void {
-    this.cookieService.delete('token');
+    this.cookieService.delete('adminToken');
     this.cookieService.delete('fullName');
     console.log('User logged out, cookies cleared.');
   }
